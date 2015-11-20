@@ -17,8 +17,13 @@ dispatcher.onGet("/getDiscoverTopicsHomePage", function(req, res) {
 	console.log('connected');
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.end(JSON.stringify(getDiscoverTopicsHomePage()));
-});    
+});
 
+dispatcher.onGet("/getHomePagePopularAdvisors", function(req, res) {
+	console.log('connected');
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end(JSON.stringify(getHomePagePopularAdvisors()));
+});
 
 
 //We need a function which handles requests and send response
@@ -98,7 +103,46 @@ function getDiscoverTopicsHomePage() {
 	};
 	//console.log(result);
 	return result;
+}
 
+function getHomePagePopularAdvisors() {
+	var result = {results: [{advisorId: 1,
+				     		 advisorName: "Haoyang Li",
+						     reviewRating: 5,
+							 title: "UX Designer, Scopely",
+							 price: 150,
+							 thumbnailUrl: null
+							},
+							{advisorId: 2,
+				     		 advisorName: "Yikai Zhu",
+						     reviewRating: 5,
+							 title: "Software Engineer, Google",
+							 price: 150,
+							 thumbnailUrl: null
+							},
+							{advisorId: 3,
+				     		 advisorName: "Chunjun",
+						     reviewRating: 5,
+							 title: "Software Engineer, Ahoy",
+							 price: 150,
+							 thumbnailUrl: null
+							},
+							{advisorId: 4,
+				     		 advisorName: "Chunlian",
+						     reviewRating: 5,
+							 title: "Software Engineer, Qunar",
+							 price: 150,
+							 thumbnailUrl: null
+							},
+							{advisorId: 5,
+				     		 advisorName: "Ning",
+						     reviewRating: 5,
+							 title: "Software Engineer, Perfect World",
+							 price: 150,
+							 thumbnailUrl: null
+							}]
+	};
+	return result;
 }
 
 //Create a server
