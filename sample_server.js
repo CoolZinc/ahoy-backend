@@ -7,11 +7,18 @@ const PORT=8080;
 dispatcher.setStatic('resources');
 
   
+dispatcher.onGet("/a", function(req, res) {
+	console.log('connected');
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end("Welcome to Ahoy Server");
+});
+
 dispatcher.onGet("/getDiscoverTopicsHomePage", function(req, res) {
 	console.log('connected');
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.end(JSON.stringify(getDiscoverTopicsHomePage()));
 });    
+
 
 
 //We need a function which handles requests and send response
@@ -89,7 +96,7 @@ function getDiscoverTopicsHomePage() {
 						]
 					}]
 	};
-	console.log(result);
+	//console.log(result);
 	return result;
 
 }
@@ -101,4 +108,5 @@ var server = http.createServer(handleRequest);
 server.listen(PORT, function(){
     //Callback triggered when server is successfully listening. Hurray!
     console.log("Server listening on: http://localhost:%s", PORT);
+    console.log("Here is Ahoy Server");
 });
