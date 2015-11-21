@@ -2,7 +2,7 @@ var http = require('http');
 var dispatcher = require('httpdispatcher');
 
 //Lets define a port we want to listen to
-const PORT=8080; 
+const PORT=80;
 
 dispatcher.setStatic('resources');
 
